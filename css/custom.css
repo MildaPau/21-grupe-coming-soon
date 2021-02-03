@@ -43,6 +43,15 @@
 .hero form {
     margin-bottom: 20px;
 }
+.hero form input {
+    background-color: transparent;
+    border-bottom-color: #fff;
+    color: #fff;
+}
+.hero form input::placeholder {
+    color: #fff;
+    font-style: italic;
+}
 
 .left-column {
     display: inline-block;
@@ -103,12 +112,15 @@ footer.container .socials > a {
     width: 36px;
     height: 36px;
     margin: 2px;
-    font-size: 20px;
+    font-size: 0;
     line-height: 36px;
     color: #fff;
     text-decoration: none;
     border-radius: 50%;
     transition: all 0.5s;
+}
+footer.container .socials > a::before {
+    font-size: 20px;
 }
 footer.container .socials > a:hover {
     background-color: #fff;
