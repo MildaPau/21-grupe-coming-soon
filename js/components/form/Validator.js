@@ -5,15 +5,25 @@ class Validator {
             name.trim() === '') {
             return 'Vardas negali buti tuscias tekstas.';
         }
+
+        // tik vienas zodis (t.y. nera tarpu)
+        // tik abeceles raides
+        // pirma raide didzioji, kitos mazosios
+
         return true;
     }
 
     isValidEmail(email) {
+        // READ MORE: https://en.wikipedia.org/wiki/Email_address
         if (typeof email !== 'string' ||
             email === '' ||
             email.trim() === '') {
             return 'Email negali buti tuscias tekstas.';
         }
+
+        // turi buti tik vienas @ simbolis
+        // aplink @ turi buti ne tusti tekstai
+
         return true;
     }
 
