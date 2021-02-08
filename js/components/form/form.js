@@ -15,37 +15,26 @@ function form(selector) {
         const errors = [];
 
         for (const input of allTextsDOM) {
-            const text = input.value
+            const text = input.value;
             const rule = input.dataset.validationRule;
 
-            let result = null;
-
-            switch (rule) {
-                case 'name':
-                    result = validator.isValidName(text);
-                    if (result !== true) {
-                        errors.push(result);
-                    }
-                    break;
-
-                case 'email':
-                    result = validator.isValidEmail(text);
-                    if (result !== true) {
-                        errors.push(result);
-                    }
-                    break;
-
-                case 'text':
-                    result = validator.isValidText(text);
-                    if (result !== true) {
-                        errors.push(result);
-                    }
-                    break;
-
-                default:
-                    console.log('rasta neatpazinta validavimo taisykle:', rule);
-                    break;
+            const ruleName = rule[0].toUpperCase() + rule.slice(1);
+            const result = validator['isValid' + ruleName](text);
+            if (result !== true) {
+                errors.push(result);
             }
+
+            // const ruleMethods = {
+            //     name: 'isValidName',
+            //     email: 'isValidEmail',
+            //     text: 'isValidText',
+            // }
+
+            // const ruleName = ruleMethods[rule];
+            // const result = validator[ruleName](text);
+            // if (result !== true) {
+            //     errors.push(result);
+            // }
         }
 
         if (errors.length) {
