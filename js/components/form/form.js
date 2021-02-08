@@ -1,6 +1,6 @@
 import { Validator } from './Validator.js';
 
-function form(selector) {
+function form(selector, toastr) {
     const formDOM = document.querySelector(selector);
     const allInputsDOM = formDOM.querySelectorAll('input');
     const allTextareaDOM = formDOM.querySelectorAll('textarea');
@@ -38,10 +38,9 @@ function form(selector) {
         }
 
         if (errors.length) {
-            console.log('ERROR: yra nevalidziu reiksmiu...');
-            console.log(errors);
+            toastr.show('error', errors);
         } else {
-            console.log('SUCCESS: visi laukai validus!!!');
+            toastr.show('success', 'Informacija buvo išsiųsta!');
         }
     });
 }
