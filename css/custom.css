@@ -101,6 +101,15 @@ footer.container {
     padding-top: 0;
 }
 
+footer .back-to-top {
+    position: relative;
+}
+footer .back-to-top > .btn {
+    position: absolute;
+    top: -24px;
+    right: -10px;
+}
+
 footer.container .socials {
     padding: 20px;
     margin-bottom: 30px;
@@ -169,6 +178,9 @@ footer p > a {
 }
 
 @media (max-width: 700px) {
+    footer .row.back-to-top {
+        display: none;
+    }
     footer .bottom-texts > p {
         width: 100%;
     }
